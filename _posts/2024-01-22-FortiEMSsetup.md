@@ -3,6 +3,7 @@ title: FortiEMS Setup
 date: 2023-01-22
 categories: [Deploy, Fortinet]
 tags: [fortinet]
+img_path: /assets/img/fortinet/
 ---
 
 
@@ -44,10 +45,10 @@ What's important comes after the connection setting is activated EMS license. In
 2. Second filling the FortiCloud account in EMS and accept the license agreement terms.
 3. Sync the License Agreement to FortiEMS, they will automatically communicate to each other and exchange the information such as hardware ID.
 
-![Img](/assets/img/fortinet/Reg.png)
+![Img](Reg.png)
 
 
-![Img](/assets/img/fortinet/Reg_success.png)
+![Img](Reg_success.png)
 
 
 
@@ -57,21 +58,21 @@ As soon as FortiEMS configuration finished, we procceed to `Security Fabric > Fa
 
 With a pop up panel on the right side of Fortigate, you will be asked to login into FortiEMS. All will be done after you successfully verified EMS credential, then EMS's certificate will be verify on Fortigate. So that whoever's endpoint hold the certificate on FortiClient will be permitted to send traffic throught Fortigate.
 
-![Img](/assets/img/fortinet/EMS_connector.png)
+![Img](EMS_connector.png)
 
 
-![Img](/assets/img/fortinet/EMS_auth.png)
+![Img](EMS_auth.png)
 
 
-![Img](/assets/img/fortinet/EMS_conn_success.png)
+![Img](EMS_conn_success.png)
 
 As the result, we will see Fortigate appear in FortiEMS's Fabric Device Area, indicating a successful connection between FortiEMS and Fortigate. For furthrer inspection, you can utilize command `diagnose endpoint fctems test-connectivity <EMS name>` and `diagnose test application fcnacd 2` to verify connectivity.
 
-![Img](/assets/img/fortinet/EMS_fabric.png)
+![Img](EMS_fabric.png)
 
 If EMS connector works fine, Fortigate will get whatever setting that has been configured on EMS while synchronization. Below image is a demonstration of ZTNA tags that I published on EMS.
 
-![Img](/assets/img/fortinet/FGT_tag.png)
+![Img](FGT_tag.png)
 
 ## Step3 - FortiClient Management
 
@@ -80,10 +81,10 @@ If EMS connector works fine, Fortigate will get whatever setting that has been c
 The Fortinet Device utilizes tags to identify verified devices, offering a diverse range of information to confirm system details. This empowers users and IT managers to make informed decisions about the policies they wish to apply. For example, they can decide only those devices with latest OS version and Antivirus installed can access the target website.
 
 
-![Img](/assets/img/fortinet/ztna_tag_rule.png)
+![Img](ztna_tag_rule.png)
 
 
-![Img](/assets/img/fortinet/ztna_tag_AV.png)
+![Img](ztna_tag_AV.png)
 
 Furthermore, the tagging rules support following function:
 - User in AD Group
@@ -102,7 +103,7 @@ Furthermore, the tagging rules support following function:
 
 After applying the tagging rules to endpoint device, which comes after the telemetry communication, the end user should see the tag on their FortiClient Avatar.
 
-![Img](/assets/img/fortinet/FortiClient_Avatar.png)
+![Img](FortiClient_Avatar.png)
 
 ### Setting Endpoint Profile
 
@@ -124,12 +125,12 @@ Users can pick one of above for their needs to customize the profile.
 
 This is the final setting(?) to do that make EMS communicate with FortiClient via Telemetry Communication. Through including `Endpoint Group` and mounting `Endprofile Profile`, EMS should know how to identify and manage the device information. 
 
-![Img](/assets/img/fortinet/EMS_EndpointPolicy.png)
+![Img](EMS_EndpointPolicy.png)
 
 ### Setting Installer
 
 After all we still need to install a agent on edge device, thus our final step is to prepare setting package from `Manage Deployment` and `FortiClient Installer` section. Beyond procedure then will generate an URL, in which contain many install package  that contain EMS's certificate. Packages executed by target system will automatically deploy FortiClient and establish a authenticated connection, take TLS1.3 for example, to EMS as Telemetry Connection.
 
-![Img](/assets/img/fortinet/Client_ZTNAconnProxy.png)
+![Img](Client_ZTNAconnProxy.png)
 
-![Img](/assets/img/fortinet/EMS_Endpoint3.png)
+![Img](EMS_Endpoint3.png)
