@@ -3,6 +3,7 @@ title: HTB Write Up - Cap
 date: 2023-11-09 12:00:00
 categories: [Pentest, HTB]
 tags: [HTB]
+img_path: /assets/img/htb/
 ---
 
 

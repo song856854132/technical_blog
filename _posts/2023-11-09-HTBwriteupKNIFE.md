@@ -3,6 +3,7 @@ title: HTB Write Up - Knife
 date: 2023-11-10 12:00:00
 categories: [Pentest, HTB]
 tags: [HTB]
+img_path: /assets/img/htb/
 ---
 
 ## Step 1: Info gathering 

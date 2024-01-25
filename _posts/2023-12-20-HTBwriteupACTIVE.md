@@ -3,6 +3,7 @@ title: HTB Write Up - Active
 date: 2023-12-20 12:00:00
 categories: [Pentest, HTB]
 tags: [HTB]
+img_path: /assets/img/htb/active
 ---
 ## Target #VM3 - 10.10.10.100
 
@@ -394,18 +395,18 @@ Impacket v0.11.0 - Copyright 2023 Fortra
 
 **Proof Screenshot:**
 
-![Img](/assets/img/htb/active/init_access_fail.png)
+![Img](init_access_fail.png)
 
-![Img](/assets/img/htb/active/init_access_smb.png)
+![Img](init_access_smb.png)
 
-![Img](/assets/img/htb/active/init_access.png)
+![Img](init_access.png)
 
 
 ### Privilege Escalation - Kerberoasting
 
 **Vulnerability Explanation:** Attacker using obtained TGS credential to authenticate with DC, and request specific SPN service ticket(TGTs), which can be offline cracking via dictionary.
 
-![Img](/assets/img/htb/active/Kerberoasting_explain.png)
+![Img](Kerberoasting_explain.png)
 
 **POC:** Kerberoasting using impacket-GetUserSPNs, and fortunately we get Administrator credential. Normally we shoud get windows service like MSSQL, something like that. 
 
@@ -441,4 +442,4 @@ nt authority\system
 
 **System Proof Screenshot:**
 
-![Img](/assets/img/htb/active/proof.png)
+![Img](proof.png)

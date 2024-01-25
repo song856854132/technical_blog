@@ -3,6 +3,7 @@ title: GOAD LAB Setup on Porxmox
 date: 2023-12-07
 categories: [Deploy, AD]
 tags: [proxmox,AD,KVM,terraform]
+img_path: /assets/img/kvm/
 ---
 
 
