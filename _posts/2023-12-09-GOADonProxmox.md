@@ -15,11 +15,9 @@ img_path: /assets/img/kvm/
 
 ### Two type of LABs scale
 - GOAD : 5 vms, 2 forests, 3 domains (full goad lab)
-![Img](https://github.com/Orange-Cyberdefense/GOAD/blob/main/docs/img/GOAD_schema.png)
 
 
 - GOAD-Light: 3 vms, 1 forest, 2 domains (smaller goad lab for those with a smaller pc)
-![image alt](https://github.com/Orange-Cyberdefense/GOAD/blob/main/docs/img/GOAD-Light_schema.png)
 
 ### Provider support
 
@@ -54,7 +52,6 @@ All GOAD LAB installation has three parts, proxmoxs' has no exception:
 ### Templating, ~~which will get a template image file on proxmox~~
 #### Downlaod ISO
 Download the Windows Server ISO image from the official website and upload it to the local image storage on Proxmox. Alternatively, for a more efficient process, you can simply set the source to download from the specified URL directly within Proxmox.
-![image alt]()
 
 #### Prepare cloudbase-init
 > The main goal of cloudbase-init is to provide guest cloud initialization for Windows and other OS, such as disk volume expansion, user creation, password generation, custom PowerShell, CMD and Bash scripts execution, Heat templates, PowerShell remoting setup. And there’s no limitation in the type of supported hypervisors. This service can be used on instances running on Hyper-V, KVM, Xen, ESXi etc. [name=cloudbase-init offical document]
@@ -81,7 +78,6 @@ pveum roleadd Packer -privs "VM.Config.Disk VM.Config.CPU VM.Config.Memory Datas
 pveum acl modify / -user 'infra_as_code@pve' -role Packer
 ```
 Then you will get a User packer for later use as a result 
-![Img]()
 
 
 
@@ -97,7 +93,6 @@ packer build -var-file=windows_server2016_proxmox_cloudinit.pkvars.hcl .
 ```
 
 Result:
-![Img of image template]()
 
 ### Providing
 #### Prepare Terraform Config File
