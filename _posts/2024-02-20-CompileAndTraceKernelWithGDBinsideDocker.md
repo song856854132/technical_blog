@@ -1,7 +1,7 @@
 ---
 title: Build & Trace Linux Kernel for Qemu in Docker
 date: 2024-02-20
-categories: [Linux]
+categories: [Linux, Kernel]
 tags: [KVM]
 img_path: /assets/img/kernel/
 ---
